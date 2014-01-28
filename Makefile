@@ -10,6 +10,7 @@ minify: bundle
 
 bundle:
 	@cat external/three.js           > build/bundle.js
+	@cat external/OBJLoader.js      >> build/bundle.js
 	@cat external/STLLoader.js      >> build/bundle.js
 	@cat external/OrbitControls.js  >> build/bundle.js
 
@@ -21,6 +22,8 @@ bundle:
 	#@cat external/ThreeCSG.js       >> build/bundle.js
 
 	@cp build/bundle.js build/bundle-all.js
+
+	@cat src/ajax.js                >> build/bundle-all.js
 	@cat src/main.js                >> build/bundle-all.js
 
 
@@ -28,6 +31,7 @@ bundle:
 fetchExternals:
 	# THREE.js
 	@wget https://raw2.github.com/mrdoob/three.js/master/build/three.js                        -O external/three.js
+	#@wget https://raw2.github.com/mrdoob/three.js/master/examples/js/loaders/OBJLoader.js      -O external/OBJLoader.js
 	@wget https://raw2.github.com/mrdoob/three.js/master/examples/js/loaders/STLLoader.js      -O external/STLLoader.js
 	@wget https://raw2.github.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js -O external/OrbitControls.js
 
